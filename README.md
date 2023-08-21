@@ -1,0 +1,3 @@
+# QuizAppAPI
+
+Esse é a API + Banco SQLite utilizando a ferramenta ORM Prisma Schema do meu App de Quiz, essa é minha segunda API, já sei de muitas coisas que devo melhorar, como o gerenciamento de rotas, ou migrar do JavaScript para o TypeScript, mas isso são acontecimentos que irei postar cada vez mais por aqui para ir registrando minha evolução...
