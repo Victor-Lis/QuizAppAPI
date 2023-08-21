@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "npx ts-node-dev --transpile-only ./index.js"
+    "dev": "npx ts-node-dev --transpile-only ./index.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.1.1",
