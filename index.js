@@ -1,13 +1,13 @@
-import { PrismaClient } from '@prisma/client';
+const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient();
-import bodyParser from 'body-parser';
-import express from "express";
-import cors from 'cors';
+const bodyParser = require('body-parser');
+const express = require("express");
+const cors = require('cors');
 const app = express();
 app.use(cors());
 app.use(bodyParser.json())
 
-app.get('/users', async (req: any, res: { send: (arg0: { id: number; name: string; email: string; password: string; pontuacao: number; }[]) => void; }) => {
+app.get('/users', async (req, res) => {
 
   const users = await prisma.user.findMany()
 
@@ -15,8 +15,8 @@ app.get('/users', async (req: any, res: { send: (arg0: { id: number; name: strin
 
 })
 
-app.post('/signin', async (req: { body: { email: any; password: any; }; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { message: string; user?: { id: number; name: string; email: string; password: string; pontuacao: number; }; }): void; new(): any; }; }; }) => {
-  
+app.post('/signin', async (req, res) => {
+
   const { email, password}  = req.body;
   console.log("SIGN IN")
 
@@ -44,7 +44,7 @@ app.post('/signin', async (req: { body: { email: any; password: any; }; }, res: 
   }
 });
 
-app.post('/signup', async (req: { body: { name: any; email: any; password: any; }; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { message: string; user?: { id: number; name: string; email: string; password: string; pontuacao: number; }; }): void; new(): any; }; }; }) => {
+app.post('/signup', async (req, res) => {
 
   const { name, email, password }  = req.body;
   console.log("SIGN UP")
@@ -88,7 +88,7 @@ app.post('/signup', async (req: { body: { name: any; email: any; password: any; 
   }
 });
 
-app.get(`/quests`, async (req: any, res: { send: (arg0: { group: number; quest: string; answer1: string; answer2: string; answer3: string; answer4: string; correctAnswer: number; }[]) => void; }) => {
+app.get(`/quests`, async (req, res) => {
 
   const quests = await prisma.quests.findMany({})
 
