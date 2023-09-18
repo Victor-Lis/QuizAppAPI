@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "dev": "npx ts-node-dev --transpile-only ./index.ts"
+    "deploy": "npx prisma generate & npx prisma db push",
+    "dev": "npx ts-node-dev --transpile-only ./index.js"
   },
   "dependencies": {
     "@prisma/client": "^5.1.1",
